@@ -18,12 +18,18 @@ Algorithms Used:
 -  After cropping the required part, in the image shown here, the 3rd plot represented the required part of the signal on which feature extraction using MFCC has to be done.
 -  After obtaining the required part of the signal, the MFCC was calculated with 13 coefficients.
 So now as we got suppose 13x73* matrix of MFCC of one of the sample, I transposed it, as the number 73* here will be changing for different samples, but 13 coefficients of MFCC would remain constant.
+
+![issue2](https://cloud.githubusercontent.com/assets/7952344/23005664/8aee5824-f423-11e6-86a0-9f915d4a7677.png)
+
 - The features such as mean, mode, variance, co-variance, correlation coefficient, min, max, etc such nine calculations were done and these singular values were stored in Training Set matrix. Such calculations were done similarly for all the rest of the training samples.
 - The labels were arranged after that, such that every respective training sample, whether it is “1” or “2” were labelled accordingly as “1” or “2”. (* This value would be different for different samples)
 
 
 
 Feature Extraction using MFCC:
+
+![issue3](https://cloud.githubusercontent.com/assets/7952344/23005707/a163b2a2-f423-11e6-9437-8bdd9e8e4011.png)
+
 
 -  Shown here is the MFCC
      calculated spectrum
@@ -55,6 +61,7 @@ Frame-by-Frame labelling Feature Extraction:
 
 
 
+![issue4](https://cloud.githubusercontent.com/assets/7952344/23005817/56508d16-f424-11e6-8706-6d5e08be57cb.jpg)
 
 
 
@@ -90,10 +97,10 @@ Frame-by-Frame labelling Feature Extraction:
 Better Algorithm:
 Hidden Markov Models(HMM) trained through HMM Tool Kit(HTK) :
 
--   Here, the forward algorithm of HMM was used to make the training set.
--   Forward algorithm is basically used to calculate the “belief state”, meaning the probability of state at a certain time, given the history of evidence.
--   My work is to detect the sound/silence through the android smart phone and whenever there is sound, I have to calculate the MFCC of that portion and send it over to the training set data after which Viterbi decoding of this sent data(test-data) will be done and accordingly the digit or mathematical sign(addition, subtraction etc.) would be identified which will be dependent on Training set data.
--   And as we can say, this algorithm is way better than SVM trained binary classifier and is considered ideal for digit recognition.
+- Here, the forward algorithm of HMM was used to make the training set.
+- Forward algorithm is basically used to calculate the “belief state”, meaning the probability of state at a certain time, given the history of evidence.
+- My work is to detect the sound/silence through the android smart phone and whenever there is sound, I have to calculate the MFCC of that portion and send it over to the training set data after which Viterbi decoding of this sent data(test-data) will be done and accordingly the digit or mathematical sign(addition, subtraction etc.) would be identified which will be dependent on Training set data.
+- And as we can say, this algorithm is way better than SVM trained binary classifier and is considered ideal for digit recognition.
 -   So, as a way forward, this algorithm would be implemented in the Android Smart Phone so that different applications like:
                1) Voice Calculator
                2) Voice Based Home Automation
