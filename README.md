@@ -11,6 +11,7 @@ Algorithms Used:
 -  For SVM Binary Classification algorithm, which is a Machine Learning algorithm we got all the training samples to train.
 -  One sample was used, its Short-Term Energy was calculated, in which a window of 320 sample was used, energy in that frame was calculated and the windowing was shifted by 160 and so on, after that, similarly consecutive training samples were used, their STE was calculated.
 
+![issue1](https://cloud.githubusercontent.com/assets/7952344/23005594/0faadba6-f423-11e6-996c-7b8f59694778.png)
 
 
 -  After the STE was obtained(shown in red), the initial and ending points of the STE were determined and the area between those points was determined and that original signal was cropped out, as the rest of the values in the signal(initial and ending part) are basically noise, which are not required.
