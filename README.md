@@ -1,65 +1,19 @@
-# Voice-Based-Digit-Recognition-Speech-Recognition-System-Machine-Learning-
-- Implemented SVM Binary Classifier with 92% F-Score for classifying digits "1" and "2".  
-- Implemented HMM Models with 99% F-Score and built a recognizer through a VIterbi Decoder  (Convolutional Decoding) for recognizing digits "1-10" and "oh" and the recognizer implemented in   Android Smartphone
-- Implemented SVM Binary Classifier with 92% F-Score for classifying digits "1" and "2".
-- Implemented HMM Models with 99% F-Score and built a recogniser through a VIterbi Decoder for recognising digits "1-10" and "oh".
+# Voice Recognition
+
+- SVM Classifier with 92% F-Score for recognizing digits.
+
+- HMM Model with 99% F-Score and corresponding Viterbi Decoder on Android smartphone.
 
 
 
-Algorithms Used:
-1) Binary Classification using Support Vector Machine(SVM) :
--  For SVM Binary Classification algorithm, which is a Machine Learning algorithm we got all the training samples to train.
--  One sample was used, its Short-Term Energy was calculated, in which a window of 320 sample was used, energy in that frame was calculated and the windowing was shifted by 160 and so on, after that, similarly consecutive training samples were used, their STE was calculated.
-
-![issue1](https://cloud.githubusercontent.com/assets/7952344/23005594/0faadba6-f423-11e6-996c-7b8f59694778.png)
 
 
--  After the STE was obtained(shown in red), the initial and ending points of the STE were determined and the area between those points was determined and that original signal was cropped out, as the rest of the values in the signal(initial and ending part) are basically noise, which are not required.
--  After cropping the required part, in the image shown here, the 3rd plot represented the required part of the signal on which feature extraction using MFCC has to be done.
--  After obtaining the required part of the signal, the MFCC was calculated with 13 coefficients.
-So now as we got suppose 13x73* matrix of MFCC of one of the sample, I transposed it, as the number 73* here will be changing for different samples, but 13 coefficients of MFCC would remain constant.
-
-![issue2](https://cloud.githubusercontent.com/assets/7952344/23005664/8aee5824-f423-11e6-86a0-9f915d4a7677.png)
-
-- The features such as mean, mode, variance, co-variance, correlation coefficient, min, max, etc such nine calculations were done and these singular values were stored in Training Set matrix. Such calculations were done similarly for all the rest of the training samples.
-- The labels were arranged after that, such that every respective training sample, whether it is “1” or “2” were labelled accordingly as “1” or “2”. (* This value would be different for different samples)
-
-
-
-Feature Extraction using MFCC:
+## Feature Extraction using MFCC:
 
 ![issue3](https://cloud.githubusercontent.com/assets/7952344/23005707/a163b2a2-f423-11e6-9437-8bdd9e8e4011.png)
 
 
--  Shown here is the MFCC
-     calculated spectrum
-     of the original cropped signal.
--  After labelling,
-     the same procedure for test samples
-     was carried out,
-     cropping the required part of signal,
-     labelling them, calculating
-     their MFCC, oing feature extraction
-     and then the final output matrix
-     was termed as Test Set.
--  The Binary Classification
-      using SVM Tool of Matlab
-      was implemented on
-      these two sets of data.
-      The result was very poor,
-      with F-Score of 52% and
-      efficiency of 50%, which is almost equal to
-      random guessing as we are doing binary classification here.
-
--  So, we only took one of the coefficients, i.e. the Energy Coefficient of MFCC and calculated all the above features, and followed the same procedure followed before, and this time the result were quite good. We got the F-Score of 86% and Efficiency of 85%.
--   Still, we had to increase the F-Score so finally we did the feature extraction frame-wise.
--   Cross Validation of Training Set had to be done, which was left and hadn’t been done at that time.
-
-Frame-by-Frame labelling Feature Extraction:
--   In Frame wise feature extraction, all those different calculations of mean, mode, median, covariance, etc. were not done, instead after labelling the training data with their respective values, we labelled the MFCC Features too.
--   After the 13x73* Matrix of MFCC is obtained, transposing it to 73*x13, we got 73* rows suppose for one such sample and labelled all these rows with it’s current respective label whether it is “1” or “2”.
-
-
+## Frame-by-Frame labelling Feature Extraction
 
 ![issue4](https://cloud.githubusercontent.com/assets/7952344/23005817/56508d16-f424-11e6-8706-6d5e08be57cb.jpg)
 
